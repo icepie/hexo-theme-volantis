@@ -180,22 +180,25 @@ $.getJSON("https://v1.hitokoto.cn", function (hitokoto) {
     // 判断是否已经开启夜间模式
     if (rootElement.getAttribute('data-user-color-scheme', 'dark')) {
       // 已开启夜间模式，修改按钮状态
-      $.message({ title: '操作通知', message: daytimetitle + '，已自动为您切换为日间模式。<br>' + hitokoto.hitokoto + daytimemessage, type: 'success' });
+      volantis.message('操作通知', daytimetitle + '，已自动为您切换为日间模式。<br>' + hitokoto.hitokoto + daytimemessage)
+      //volantis.message({ title: '操作通知', message: daytimetitle + '，已自动为您切换为日间模式。<br>' + hitokoto.hitokoto + daytimemessage, type: 'success' });
       const mode = toggleCustomDarkMode();
       applyCustomDarkModeSettings(mode);
     }
     if (rootElement.getAttribute('data-user-color-scheme', 'light')) {
       // 未开启夜间模式，不执行操作
-      $.message({ title: daytimetitle, message: hitokoto.hitokoto + daytimemessage, type: 'info' });
+      volantis.message(daytimetitle,  hitokoto.hitokoto + daytimemessage)
+      //volantis.message({ title: daytimetitle, message: hitokoto.hitokoto + daytimemessage, type: 'info' });
       return true;
     } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       // 已开启夜间模式，修改按钮状态
-      $.message({ title: '操作通知', message: daytimetitle + '，已自动为您切换为日间模式。<br>' + hitokoto.hitokoto + daytimemessage, type: 'success' });
+      volantis.message('操作通知', daytimetitle + '，已自动为您切换为日间模式。<br>' + hitokoto.hitokoto + daytimemessage)
+      //volantis.message({ title: '操作通知', message: daytimetitle + '，已自动为您切换为日间模式。<br>' + hitokoto.hitokoto + daytimemessage, type: 'success' });
       const mode = toggleCustomDarkMode();
       applyCustomDarkModeSettings(mode);
     } else {
       // 未开启夜间模式，不执行操作
-      $.message({ title: daytimetitle, message: hitokoto.hitokoto + daytimemessage, type: 'info' });
+      volantis.message({ title: daytimetitle, message: hitokoto.hitokoto + daytimemessage, type: 'info' });
       return true;
     }
   } else {
@@ -212,21 +215,25 @@ $.getJSON("https://v1.hitokoto.cn", function (hitokoto) {
     // 判断是否已经开启夜间模式
     if (rootElement.getAttribute('data-user-color-scheme', 'light')) {
       // 未开启夜间模式，修改按钮状态
-      $.message({ title: '操作通知', message: nighttitle + '，已自动为您切换为夜间模式。<br>' + hitokoto.hitokoto + nightmessage, type: 'success' });
+      volantis.message('操作通知', nighttitle + '，已自动为您切换为夜间模式。<br>' + hitokoto.hitokoto + nightmessage)
+      //$.message({ title: '操作通知', message: nighttitle + '，已自动为您切换为夜间模式。<br>' + hitokoto.hitokoto + nightmessage, type: 'success' });
       const mode = toggleCustomDarkMode();
       applyCustomDarkModeSettings(mode);
     }
     if (rootElement.getAttribute('data-user-color-scheme', 'dark')) {
       // 已开启夜间模式，不执行操作
-      $.message({ title: nighttitle, message: hitokoto.hitokoto + nightmessage, type: 'info' });
+      volantis.message('操作通知', hitokoto.hitokoto + nightmessage)
+      //$.message({ title: nighttitle, message: hitokoto.hitokoto + nightmessage, type: 'info' });
       return true;
     } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       // 已开启夜间模式，不执行操作
-      $.message({ title: nighttitle, message: hitokoto.hitokoto + nightmessage, type: 'info' });
+      volantis.message('操作通知',hitokoto.hitokoto + nightmessage)
+      //$.message({ title: nighttitle, message: hitokoto.hitokoto + nightmessage, type: 'info' });
       return true;
     } else {
       // 未开启夜间模式，修改按钮状态
-      $.message({ title: '操作通知', message: nighttitle + '，已自动为您切换为夜间模式。<br>' + hitokoto.hitokoto + nightmessage, type: 'success' });
+      volantis.message('操作通知', nighttitle + '，已自动为您切换为夜间模式。<br>' + hitokoto.hitokoto + nightmessage)
+      //$.message({ title: '操作通知', message: nighttitle + '，已自动为您切换为夜间模式。<br>' + hitokoto.hitokoto + nightmessage, type: 'success' });
       const mode = toggleCustomDarkMode();
       applyCustomDarkModeSettings(mode);
     }
